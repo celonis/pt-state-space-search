@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "pt-state-space-search"
+version = "1.0.0"
+description = "Process tree state space search implmentation based on the ICPM paper"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "pt_state_space_search"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+prettyprinttree = "^2.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
