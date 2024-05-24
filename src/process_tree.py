@@ -13,8 +13,13 @@ class Operator(Enum):
 
 class ProcessTree:
     def __init__(
-        self, operator: Operator = None, label: str = None, parent: "ProcessTree" = None
+        self,
+        position: int,
+        operator: Operator = None,
+        label: str = None,
+        parent: "ProcessTree" = None,
     ):
+        self._position = position
         self._operator = operator
         self._label = label
         self._parent = parent
@@ -40,12 +45,13 @@ class ProcessTree:
     def label(self) -> str:
         return self._label
 
-    def print_tree(self):
+    @property
+    def position(self) -> int:
+        return self._position
+
+    def print_tree(self): 
         printer = PrettyPrintTree(
-            lambda tree: tree.children,
-            lambda tree: (
-                tree.operator.value if tree.operator is not None else tree.label
-            ),
+            lambda tree: tree.children, lambda tree: f"{tree.operator.value} ({tree.position})" if tree.operator is not None else tree.label
         )
         printer(self)
 
@@ -53,3 +59,5 @@ class ProcessTree:
         if self.operator:
             return f"{self.operator.value}({','.join(str(child) for child in self.children)})"
         return f"'{self.label}'"
+
+
