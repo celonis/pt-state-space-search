@@ -6,7 +6,7 @@ from typing import Dict, Generic, List, Optional, Set, Tuple, Type, TypeVar
 from process_tree import ProcessTree
 from semantics import ProcessTreeSemanticsInvertible, Transition
 from tree_state import ProcessTreeState
-from tree_utils import get_reverse_tree, is_leaf, parse_tree_string
+from tree_utils import get_reverse_tree, is_leaf
 
 PT = TypeVar('PT', bound='ProcessTree')
 
